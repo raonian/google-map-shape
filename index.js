@@ -39,7 +39,6 @@ function addPolygonToMap(Polygon, paths, map, options = {}) {
     });
 
     polygon.setMap(map);
-
 }
 
 /**
@@ -83,11 +82,8 @@ function initMap() {
     };
 
     // 读取shapefile数据为异步处理，所以需要将绘制地图的方法作为回调函数
-    setShapeDatas(shapefile, './AUS_zone.shp', shapeDatas, drawMap);
-
-
-    function drawMap() {
-        // 初始化map
+    setShapeDatas(shapefile, './AUS_zone.shp', shapeDatas, () => {
+         // 初始化map
         const map = new google.maps.Map(
             document.getElementById("map"),
             mapOptions,
@@ -95,7 +91,5 @@ function initMap() {
 
         // 绘制图形
         drawPolygons(shapeDatas, google.maps.Polygon, map);
-        
-    }
-
+    });
 }
