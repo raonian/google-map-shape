@@ -6,7 +6,7 @@
  * @return 
  */
 function setShapeDatas(shapefile, url, shapeDatas, callback) {
-    shapefile.openShp()
+    shapefile.openShp(url)
         .then(source => source.read()
             .then(function log(result) {
                 if (result.done) {
