@@ -72,11 +72,15 @@ function drawPolygons(shapeDatas, Polygon, map) {
 /**
  * 渲染主流程
  * @method initMap
- * @param 
+ * @param
  * @return 
  */
 function initMap() {
     const shapeDatas = [];
+    const mapOptions = {
+         zoom: 4,
+         center: { lat: -25.0568048, lng: 132.6753601 }
+    };
 
     // 读取shapefile数据为异步处理，所以需要将绘制地图的方法作为回调函数
     setShapeDatas(shapefile, './AUS_zone.shp', shapeDatas, drawMap);
@@ -86,10 +90,7 @@ function initMap() {
         // 初始化map
         const map = new google.maps.Map(
             document.getElementById("map"),
-            {
-                zoom: 4,
-                center: { lat: -25.0568048, lng: 132.6753601 }
-            }
+            mapOptions,
         );
 
         // 绘制图形
