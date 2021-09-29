@@ -28,23 +28,14 @@ function setShapeDatas(shapefile, url, shapeDatas, callback) {
  * @return 
  */
 function addPolygonToMap(Polygon, paths, map, options = {}) {
-    const {
-        strokeColor = '#FF0000',
-        strokeOpacity = 0.8,
-        strokeWeight = 2,
-        fillColor = '#FF0000',
-        fillOpacity = 0.3,
-        ...rest
-    } = options;
-
     const polygon = new Polygon({
         paths,
-        strokeColor,
-        strokeOpacity,
-        strokeWeight,
-        fillColor,
-        fillOpacity,
-        ...rest
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#FF0000',
+        fillOpacity: 0.3,
+        ...options,
     });
 
     polygon.setMap(map);
