@@ -71,6 +71,8 @@ function drawPolygons(shapeDatas, Polygon, map) {
 
                 addPolygonToMap(Polygon, paths, map);
             });
+        } else {
+           // TODO others type
         }
         
     });
